@@ -6,9 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by HappyDave on 07/01/2015.
- */
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String LOG_TAG = "DBHelper";
@@ -29,12 +26,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private void crearDadesInicials(SQLiteDatabase db) {
         long cntDavid = insertContacte(db, "David");
-        insertContacte(db, "Antoni");
+        long cntAntoni = insertContacte(db, "Antoni");
         insertItem(db, "DVD Matrix");
         insertItem(db, "DVD Matrix II");
         insertItem(db, "Lambrusco");
         insertItem(db, "Joc Hammerwatch");
         insertPrestec(db, cntDavid, "DVD Matrix");
+        insertPrestec(db, cntAntoni, "Labrusco");
+        insertPrestec(db, cntDavid, "DVD Matrix II");
+        insertPrestec(db, cntAntoni, "Joc Hammerwatch");
+        // TODO: Revisar lo que permet afegir prestecs amb elements que no existeixen.
+        insertPrestec(db, cntAntoni, "Pelambrusco");
+        insertPrestec(db, cntAntoni, "Cony en llauna");
+        insertPrestec(db, cntDavid, "Nina inflable");
     }
 
     private void insertPrestec(SQLiteDatabase db, long idContacte, String item) {

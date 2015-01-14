@@ -14,7 +14,6 @@ import android.widget.ListView;
 public class MyActivity extends Activity {
 
     private static final String LOG_TAG = "MyActivity";
-    ModelObsPrestecs model;
     ListView prestecList;
     AdapterMeu adaptador;
 
@@ -27,19 +26,10 @@ public class MyActivity extends Activity {
 
     private void inicialitza() {
         final ModelCjtPrestecs modelReal = new ModelCjtPrestecs(this);
-        model = new ModelObsPrestecs(modelReal);
 
         prestecList = (ListView) findViewById(R.id.prectec_list);
-        adaptador = new AdapterMeu(this, modelReal.getDades(), 0);
+        adaptador = new AdapterMeu(this, modelReal, 0);
         prestecList.setAdapter(adaptador);
-
-        model.setOnCanviModelListener(new ModelObsPrestecs.OnCanviModelListener() {
-            @Override
-            public void onNovesDades() {
-                adaptador.changeCursor(modelReal.getDades());
-                prestecList.invalidateViews();
-            }
-        });
 
         /*
         boto = (Button) findViewById(R.id.button);
@@ -55,7 +45,7 @@ public class MyActivity extends Activity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 // Esborra l'objecte polsat
-                model.del(id);
+                adaptador.del(id);
                 return true;
             }
         });
