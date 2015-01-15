@@ -3,15 +3,16 @@ package com.damo.trastome.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.damo.trastome.R;
 import com.damo.trastome.adapters.AdapterCjtPrestecs;
+import com.damo.trastome.models.ModelCjtItems;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
 
@@ -35,16 +36,6 @@ public class MyActivity extends Activity {
         prestecList = (ListView) findViewById(R.id.prectec_list);
         adaptador = new AdapterCjtPrestecs(this, modelReal, 0);
         prestecList.setAdapter(adaptador);
-
-        /*
-        boto = (Button) findViewById(R.id.button);
-        boto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClic();
-            }
-        });
-        */
 
         prestecList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -79,7 +70,18 @@ public class MyActivity extends Activity {
     }
 
     private void afegirPrestec() {
-        Intent intent = new Intent(getApplicationContext(), ActivityAfegirPrestec.class);
+        if (new ModelCjtItems(getApplicationContext()).sizeItemsSensePrestec() > 0)
+            goToAfegirActivity();
+        else
+            Toast.makeText(
+                    getApplicationContext(),
+                    getApplicationContext().getString(R.string.no_items_toast),
+                    Toast.LENGTH_SHORT
+            ).show();
+    }
+
+    private void goToAfegirActivity() {
+        Intent intent = new Intent(getApplicationContext(), AfegirPrestecActivity.class);
         startActivityForResult(intent, AFEGIR_REQUEST);
     }
 

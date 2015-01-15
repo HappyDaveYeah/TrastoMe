@@ -1,6 +1,7 @@
 package com.damo.trastome.dao;
 
 import android.database.Cursor;
+import android.provider.ContactsContract;
 
 import com.damo.trastome.db.DBContracts;
 
@@ -16,8 +17,8 @@ public class Prestec {
     }
 
     public Prestec(Cursor adaptadorItemCursor, Cursor adaptadorContactesCursor, String data) {
-        this.nomItem = adaptadorItemCursor.getString(adaptadorItemCursor.getColumnIndex(DBContracts.Item.NOM));;
-        this.idContacte = adaptadorContactesCursor.getLong(adaptadorContactesCursor.getColumnIndex(DBContracts.Item._ID));
+        this.nomItem = adaptadorItemCursor.getString(adaptadorItemCursor.getColumnIndex(DBContracts.Item.NOM));
+        this.idContacte = adaptadorContactesCursor.getLong(adaptadorContactesCursor.getColumnIndex(ContactsContract.Data._ID));
         this.data = data;
     }
 

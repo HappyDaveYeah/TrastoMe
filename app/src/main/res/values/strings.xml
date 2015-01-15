@@ -18,5 +18,6 @@
     <string name="prestec_moros">Nom del Morós</string>
     <string name="prestec_item">Nom de l\'objecte deixat</string>
     <string name="prestec_nom_item">Nom</string>
+    <string name="no_items_toast">No hi ha cap trasto disponible.</string>
 
 </resources>

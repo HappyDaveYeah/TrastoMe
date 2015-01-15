@@ -13,13 +13,13 @@ import com.damo.trastome.Utils;
 import com.damo.trastome.adapters.AdapterCjtContactes;
 import com.damo.trastome.adapters.AdapterCjtItems;
 import com.damo.trastome.dao.Prestec;
-import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.models.ModelCjtContactes;
 import com.damo.trastome.models.ModelCjtItems;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
-public class ActivityAfegirPrestec extends Activity {
+public class AfegirPrestecActivity extends Activity {
 
+    public static final String LOG_TAG = "AfegirPrestecActivity";
     private Spinner spinnerContactes;
     private Spinner spinnerItems;
     private AdapterCjtContactes adaptadorContactes;
@@ -51,15 +51,17 @@ public class ActivityAfegirPrestec extends Activity {
         ModelCjtContactes modelCjtContactes = new ModelCjtContactes(getApplicationContext());
 
         adaptadorContactes =
-                new AdapterCjtContactes(this, modelCjtContactes, 0);
+                new AdapterCjtContactes(this, android.R.layout.simple_spinner_item, modelCjtContactes, 0);
 
+        adaptadorContactes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerContactes.setAdapter(adaptadorContactes);
 
         ModelCjtItems modelCjtItems = new ModelCjtItems(getApplicationContext());
 
         adaptadorItem =
-                new AdapterCjtItems(this, modelCjtItems, 0);
+                new AdapterCjtItems(this, android.R.layout.simple_spinner_item, modelCjtItems, 0);
 
+        adaptadorItem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerItems.setAdapter(adaptadorItem);
     }
 
@@ -86,7 +88,11 @@ public class ActivityAfegirPrestec extends Activity {
 
     private void afegirPrestec() {
         ModelCjtPrestecs modelCjtPrestecs = new ModelCjtPrestecs(getApplicationContext());
-        modelCjtPrestecs.add(new Prestec(adaptadorItem.getCursor(), adaptadorContactes.getCursor(), Utils.getDateTime()));
+        modelCjtPrestecs.add(
+                new Prestec((Cursor) spinnerItems.getSelectedItem(),
+                (Cursor) spinnerContactes.getSelectedItem(),
+                Utils.getDateTime())
+        );
     }
 
     private void onClickCancelar() {

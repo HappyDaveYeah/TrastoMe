@@ -31,6 +31,8 @@ public final class DBContracts {
         public static final String NOM_ITEM = "nomItem";
         public static final String DATA = "data";
 
+        public static final String FULL_ID = TABLE_NAME + "." + _ID;
+
         public static final String[] COLUMNS = {_ID, ID_CONTACTE, NOM_ITEM, DATA};
 
         static final String CREATE = "CREATE TABLE " + TABLE_NAME
@@ -50,6 +52,8 @@ public final class DBContracts {
     public static abstract class Item implements BaseColumns {
         public static final String TABLE_NAME = "Item";
         public static final String NOM = "nom";
+
+        public static final String FULL_ID = TABLE_NAME + "." + _ID;
 
         public static final String[] COLUMNS = {_ID, NOM};
 

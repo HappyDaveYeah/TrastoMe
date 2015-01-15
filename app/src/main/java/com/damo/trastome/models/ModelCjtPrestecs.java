@@ -21,14 +21,6 @@ public class ModelCjtPrestecs {
     }
 
     private void carregaDades() {
-        //TODO: Esborrar aquesta part
-        /*SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.execSQL(DBContracts.Item.DELETE);
-        db.execSQL(DBContracts.Contacte.DELETE);
-        db.execSQL(DBContracts.Prestec.DELETE);
-        dbHelper.onCreate(db);
-        db.close();*/
-
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         dades = db.query(DBContracts.Prestec.TABLE_NAME, DBContracts.Prestec.COLUMNS, null,
                 null, null, null, DBContracts.Prestec.DATA + " ASC", null);
@@ -48,7 +40,6 @@ public class ModelCjtPrestecs {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int x = db.delete(DBContracts.Prestec.TABLE_NAME, DBContracts.Prestec._ID + "=?",
                 new String[]{ String.valueOf(id) });
-        Log.d(LOG_TAG, "del -> numdeleted = " + x);
         carregaDades();
     }
 
