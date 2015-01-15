@@ -1,18 +1,14 @@
-package com.damo.trastome;
+package com.damo.trastome.models;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.provider.ContactsContract;
-import android.util.Log;
 
 public class ModelCjtContactes {
     private static final String LOG_TAG = "ModelCjtContactes";
-    private final DBHelper dbHelper;
     private Cursor dades;
 
-    ModelCjtContactes(Context context) {
-        dbHelper = DBHelper.getInstance(context);
+    public ModelCjtContactes(Context context) {
         carregaDades(context);
     }
 

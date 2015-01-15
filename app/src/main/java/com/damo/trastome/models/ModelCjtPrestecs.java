@@ -1,17 +1,20 @@
-package com.damo.trastome;
+package com.damo.trastome.models;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.damo.trastome.DBContracts;
+import com.damo.trastome.DBHelper;
+import com.damo.trastome.Prestec;
+
 public class ModelCjtPrestecs {
     private static final String LOG_TAG = "ModelCjtPrestecs";
-    private final DBHelper dbHelper;
+    private DBHelper dbHelper;
     private Cursor dades;
 
-    ModelCjtPrestecs(Context context) {
+    public ModelCjtPrestecs(Context context) {
         dbHelper = DBHelper.getInstance(context);
         carregaDades();
     }

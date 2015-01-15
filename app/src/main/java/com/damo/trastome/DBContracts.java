@@ -26,12 +26,12 @@ public final class DBContracts {
     }
 
     public static abstract class Prestec implements BaseColumns {
-        static final String TABLE_NAME = "Prestec";
+        public static final String TABLE_NAME = "Prestec";
         static final String ID_CONTACTE = "idContacte";
-        static final String NOM_ITEM = "nomItem";
-        static final String DATA = "data";
+        public static final String NOM_ITEM = "nomItem";
+        public static final String DATA = "data";
 
-        static final String[] COLUMNS = {_ID, ID_CONTACTE, NOM_ITEM, DATA};
+        public static final String[] COLUMNS = {_ID, ID_CONTACTE, NOM_ITEM, DATA};
 
         static final String CREATE = "CREATE TABLE " + TABLE_NAME
                 + " ( "
@@ -48,10 +48,10 @@ public final class DBContracts {
     }
 
     public static abstract class Item implements BaseColumns {
-        static final String TABLE_NAME = "Item";
-        static final String NOM = "nom";
+        public static final String TABLE_NAME = "Item";
+        public static final String NOM = "nom";
 
-        static final String[] COLUMNS = {_ID, NOM};
+        public static final String[] COLUMNS = {_ID, NOM};
 
         static final String CREATE = "CREATE TABLE " + TABLE_NAME
                 + " ( "

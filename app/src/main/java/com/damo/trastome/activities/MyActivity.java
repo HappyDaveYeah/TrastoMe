@@ -1,4 +1,4 @@
-package com.damo.trastome;
+package com.damo.trastome.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.damo.trastome.R;
+import com.damo.trastome.adapters.AdapterCjtPrestecs;
+import com.damo.trastome.models.ModelCjtPrestecs;
 
 
 public class MyActivity extends Activity {

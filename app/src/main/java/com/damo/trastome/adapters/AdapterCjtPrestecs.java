@@ -1,4 +1,4 @@
-package com.damo.trastome;
+package com.damo.trastome.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class AdapterCjtContactes extends CursorAdapter{
+import com.damo.trastome.DBContracts;
+import com.damo.trastome.Prestec;
+import com.damo.trastome.models.ModelCjtPrestecs;
+
+public class AdapterCjtPrestecs extends CursorAdapter{
     private LayoutInflater cursorInflater;
     private ModelCjtPrestecs modelCjtPrestecs;
 
 
-    public AdapterCjtContactes(Context context, ModelCjtPrestecs modelCjtPrestecs, int flags) {
+    public AdapterCjtPrestecs(Context context, ModelCjtPrestecs modelCjtPrestecs, int flags) {
         super(context, modelCjtPrestecs.getDades(), flags);
         cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.modelCjtPrestecs = modelCjtPrestecs;

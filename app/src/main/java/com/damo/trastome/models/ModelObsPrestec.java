@@ -1,4 +1,6 @@
-package com.damo.trastome;
+package com.damo.trastome.models;
+
+import com.damo.trastome.Prestec;
 
 public class ModelObsPrestec {
     public interface OnCanviModelListener {
