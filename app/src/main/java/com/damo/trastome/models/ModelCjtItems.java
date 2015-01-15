@@ -10,7 +10,7 @@ import com.damo.trastome.dao.Item;
 import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.db.DBHelper;
 
-public class ModelCjtItems extends AbsModelCursor{
+public class ModelCjtItems {
     private static final String LOG_TAG = "ModelCjtItems";
     private DBHelper dbHelper;
     private Cursor dades;
@@ -20,8 +20,7 @@ public class ModelCjtItems extends AbsModelCursor{
         carregaDades();
     }
 
-    @Override
-    protected void carregaDades() {
+    public void carregaDades() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         dades = db.query(DBContracts.Item.TABLE_NAME, DBContracts.Item.COLUMNS, null,
                 null, null, null, DBContracts.Item.NOM + " ASC", null);

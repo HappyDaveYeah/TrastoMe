@@ -19,40 +19,25 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DBContracts.Item.CREATE);
-        db.execSQL(DBContracts.Contacte.CREATE);
         db.execSQL(DBContracts.Prestec.CREATE);
         crearDadesInicials(db);
     }
 
     private void crearDadesInicials(SQLiteDatabase db) {
-        long cntDavid = insertContacte(db, "David");
-        long cntAntoni = insertContacte(db, "Antoni");
         insertItem(db, "DVD Matrix");
         insertItem(db, "DVD Matrix II");
         insertItem(db, "Lambrusco");
         insertItem(db, "Joc Hammerwatch");
-        //insertPrestec(db, cntDavid, "DVD Matrix");
-        //insertPrestec(db, cntAntoni, "Joc Hammerwatch");
-        // TODO: Revisar lo que permet afegir prestecs amb elements que no existeixen.
-        /*
-        insertPrestec(db, cntAntoni, "Pelambrusco");
-        insertPrestec(db, cntAntoni, "Cony en llauna");
-        insertPrestec(db, cntDavid, "Nina inflable");
-        */
+        insertPrestec(db, 77, "Sonia", "DVD Matrix");
     }
 
-    private long insertPrestec(SQLiteDatabase db, long idContacte, String item) {
+    private long insertPrestec(SQLiteDatabase db, long idContacte, String nomContacte, String item) {
         ContentValues values = new ContentValues();
         values.put(DBContracts.Prestec.ID_CONTACTE, idContacte);
+        values.put(DBContracts.Prestec.NOM_CONTACTE, nomContacte);
         values.put(DBContracts.Prestec.NOM_ITEM, item);
         values.put(DBContracts.Prestec.DATA, Utils.getDateTime());
         return db.insert(DBContracts.Prestec.TABLE_NAME, null, values);
-    }
-
-    private long insertContacte(SQLiteDatabase db, String nom) {
-        ContentValues values = new ContentValues();
-        values.put(DBContracts.Contacte.NOM, nom);
-        return db.insert(DBContracts.Contacte.TABLE_NAME, null, values);
     }
 
     private long insertItem(SQLiteDatabase db, String item) {
@@ -64,7 +49,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DBContracts.Item.DELETE);
-        db.execSQL(DBContracts.Contacte.DELETE);
         db.execSQL(DBContracts.Prestec.DELETE);
         onCreate(db);
     }

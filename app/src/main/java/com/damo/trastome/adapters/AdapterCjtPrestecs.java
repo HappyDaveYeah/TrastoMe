@@ -42,11 +42,6 @@ public class AdapterCjtPrestecs extends CursorAdapter{
         changeCursor(modelCjtPrestecs.getDades());
     }
 
-    public void add(Prestec p) {
-        modelCjtPrestecs.add(p);
-        updateCursor();
-    }
-
     public void del(long id) {
         modelCjtPrestecs.del(id);
         updateCursor();

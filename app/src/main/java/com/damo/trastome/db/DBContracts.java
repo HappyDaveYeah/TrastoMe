@@ -9,22 +9,6 @@ public final class DBContracts {
     public static final int SCHEMA = 1;
     private static final String COMA_SEP = ", ";
 
-    public static abstract class Contacte implements BaseColumns {
-        static final String TABLE_NAME = "Contacte";
-        static final String NOM = "nom";
-
-        static final String[] COLUMNS = {_ID, NOM};
-
-        static final String CREATE = "CREATE TABLE " + TABLE_NAME
-                + " ( "
-                + _ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT"
-                + COMA_SEP + NOM + " TEXT NOT NULL"
-                + ");";
-
-        public static final String DELETE = "DROP TABLE IF EXISTS " + TABLE_NAME;
-    }
-
     public static abstract class Prestec implements BaseColumns {
         public static final String TABLE_NAME = "Prestec";
         public static final String ID_CONTACTE = "idContacte";
@@ -44,7 +28,6 @@ public final class DBContracts {
                 + COMA_SEP + NOM_CONTACTE + " TEXT NOT NULL"
                 + COMA_SEP + NOM_ITEM + " TEXT NOT NULL"
                 + COMA_SEP + DATA + " TEXT NOT NULL"
-                + COMA_SEP + "FOREIGN KEY ("+ ID_CONTACTE +") REFERENCES "+ Contacte.TABLE_NAME +" ("+ Contacte._ID +")"
                 + COMA_SEP + "FOREIGN KEY ("+ NOM_ITEM +") REFERENCES "+ Item.TABLE_NAME +" ("+ Item.NOM +")"
                 + ");";
 
