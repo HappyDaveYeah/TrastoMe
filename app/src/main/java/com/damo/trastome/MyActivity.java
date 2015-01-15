@@ -1,13 +1,12 @@
 package com.damo.trastome;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
 
@@ -15,7 +14,7 @@ public class MyActivity extends Activity {
 
     private static final String LOG_TAG = "MyActivity";
     ListView prestecList;
-    AdapterMeu adaptador;
+    AdapterCjtPrestecs adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class MyActivity extends Activity {
         final ModelCjtPrestecs modelReal = new ModelCjtPrestecs(this);
 
         prestecList = (ListView) findViewById(R.id.prectec_list);
-        adaptador = new AdapterMeu(this, modelReal, 0);
+        adaptador = new AdapterCjtPrestecs(this, modelReal, 0);
         prestecList.setAdapter(adaptador);
 
         /*
@@ -55,19 +54,34 @@ public class MyActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
+        getMenuInflater().inflate(R.menu.menu_prestec, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.nou_prestec:
+                afegirPrestec();
+                return true;
+            case R.id.buscar_prestec:
+                buscarPrestec();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
+
+
+    private void afegirPrestec() {
+        Intent intent = new Intent(getApplicationContext(), ActivityAfegirPrestec.class);
+        //finish();
+        startActivity(intent);
+    }
+
+    private void buscarPrestec() {
+
+    }
+
 }
+

@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class AdapterMeu extends CursorAdapter{
+public class AdapterCjtContactes extends CursorAdapter{
     private LayoutInflater cursorInflater;
     private ModelCjtPrestecs modelCjtPrestecs;
 
 
-    public AdapterMeu(Context context, ModelCjtPrestecs modelCjtPrestecs, int flags) {
+    public AdapterCjtContactes(Context context, ModelCjtPrestecs modelCjtPrestecs, int flags) {
         super(context, modelCjtPrestecs.getDades(), flags);
         cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.modelCjtPrestecs = modelCjtPrestecs;

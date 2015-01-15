@@ -2,9 +2,6 @@ package com.damo.trastome;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by HappyDave on 07/01/2015.
- */
 public final class DBContracts {
     private DBContracts(){}
 
@@ -54,11 +51,14 @@ public final class DBContracts {
         static final String TABLE_NAME = "Item";
         static final String NOM = "nom";
 
-        static final String[] COLUMNS = {NOM};
+        static final String[] COLUMNS = {_ID, NOM};
 
         static final String CREATE = "CREATE TABLE " + TABLE_NAME
                 + " ( "
-                + NOM + " TEXT PRIMARY KEY"
+                + _ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT"
+                + COMA_SEP + NOM + " TEXT NOT NULL"
+                + COMA_SEP + "UNIQUE (" + NOM + ")"
                 + ");";
 
         public static final String DELETE = "DROP TABLE IF EXISTS " + TABLE_NAME;

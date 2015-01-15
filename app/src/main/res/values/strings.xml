@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Generics -->
     <string name="app_name">TrastoMe</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="acceptar">Acceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+    <!-- Titols -->
+    <string name="titol_prestec">Afegir Préstec</string>
+
+    <!-- Pantalla Principal Prestecs -->
+    <string name="menu_afegir_prestec">Afegir Préstec</string>
+    <string name="menu_buscar_prestec">Buscar Préstec</string>
+
+    <!-- Afegir Prestecs -->
+    <string name="prestec_titol">Introdueix les següents dades per crear un Préstec</string>
+    <string name="prestec_moros">Nom del Morós</string>
+    <string name="prestec_item">Nom de l\'objecte deixat</string>
+    <string name="prestec_nom_item">Nom</string>
 
 </resources>

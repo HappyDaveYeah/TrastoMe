@@ -1,13 +1,11 @@
 package com.damo.trastome;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-/**
- * Created by HappyDave on 07/01/2015.
- */
 public class ModelCjtPrestecs {
     private static final String LOG_TAG = "ModelCjtPrestecs";
     private final DBHelper dbHelper;
@@ -33,7 +31,15 @@ public class ModelCjtPrestecs {
     }
 
     public void add(Prestec prestec) {
-        //TODO: add prestec
+        /*
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBContracts.Prestec.ID_CONTACTE, prestec.getClass());
+        values.put(DBContracts.Prestec.NOM_ITEM, item);
+        values.put(DBContracts.Prestec.DATA, Utils.getDateTime());
+        db.insert(DBContracts.Prestec.TABLE_NAME, null, values);
+        carregaDades();
+        */
     }
 
     public void del(long id) {
