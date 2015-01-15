@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.damo.trastome.DBContracts;
+import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.models.ModelCjtItems;
 
 public class AdapterCjtItems extends CursorAdapter{

@@ -3,6 +3,7 @@ package com.damo.trastome.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.damo.trastome.models.ModelCjtPrestecs;
 public class MyActivity extends Activity {
 
     private static final String LOG_TAG = "MyActivity";
+    public static final int AFEGIR_REQUEST = 1;
     ListView prestecList;
     AdapterCjtPrestecs adaptador;
 
@@ -28,7 +30,7 @@ public class MyActivity extends Activity {
     }
 
     private void inicialitza() {
-        final ModelCjtPrestecs modelReal = new ModelCjtPrestecs(this);
+        ModelCjtPrestecs modelReal = new ModelCjtPrestecs(this);
 
         prestecList = (ListView) findViewById(R.id.prectec_list);
         adaptador = new AdapterCjtPrestecs(this, modelReal, 0);
@@ -76,16 +78,24 @@ public class MyActivity extends Activity {
         }
     }
 
-
     private void afegirPrestec() {
         Intent intent = new Intent(getApplicationContext(), ActivityAfegirPrestec.class);
-        //finish();
-        startActivity(intent);
+        startActivityForResult(intent, AFEGIR_REQUEST);
     }
 
     private void buscarPrestec() {
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AFEGIR_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                adaptador.changeCursor(new ModelCjtPrestecs(this).getDades());
+            }
+        }
+    }
+
 
 }
 

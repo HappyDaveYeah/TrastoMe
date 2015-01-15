@@ -50,13 +50,13 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/prestec_cancelar"
+            android:id="@+id/btn_prestec_cancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancelar"/>
 
         <Button
-            android:id="@+id/prestec_acceptar"
+            android:id="@+id/btn_prestec_acceptar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/acceptar"/>

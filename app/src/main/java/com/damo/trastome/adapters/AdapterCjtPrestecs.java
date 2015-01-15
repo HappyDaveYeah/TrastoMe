@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.damo.trastome.DBContracts;
-import com.damo.trastome.Prestec;
+import com.damo.trastome.db.DBContracts;
+import com.damo.trastome.dao.Prestec;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
 public class AdapterCjtPrestecs extends CursorAdapter{
     private LayoutInflater cursorInflater;
     private ModelCjtPrestecs modelCjtPrestecs;
-
 
     public AdapterCjtPrestecs(Context context, ModelCjtPrestecs modelCjtPrestecs, int flags) {
         super(context, modelCjtPrestecs.getDades(), flags);

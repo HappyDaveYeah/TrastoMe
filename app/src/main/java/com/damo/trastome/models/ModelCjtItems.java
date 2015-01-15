@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.damo.trastome.DBContracts;
-import com.damo.trastome.DBHelper;
+import com.damo.trastome.db.DBContracts;
+import com.damo.trastome.db.DBHelper;
 
 public class ModelCjtItems {
     private static final String LOG_TAG = "ModelCjtItems";

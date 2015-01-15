@@ -1,4 +1,4 @@
-package com.damo.trastome;
+package com.damo.trastome.db;
 
 import android.provider.BaseColumns;
 
@@ -27,7 +27,7 @@ public final class DBContracts {
 
     public static abstract class Prestec implements BaseColumns {
         public static final String TABLE_NAME = "Prestec";
-        static final String ID_CONTACTE = "idContacte";
+        public static final String ID_CONTACTE = "idContacte";
         public static final String NOM_ITEM = "nomItem";
         public static final String DATA = "data";
 

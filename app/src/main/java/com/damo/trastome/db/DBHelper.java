@@ -1,10 +1,12 @@
-package com.damo.trastome;
+package com.damo.trastome.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.damo.trastome.Utils;
 
 public class DBHelper extends SQLiteOpenHelper {
 
