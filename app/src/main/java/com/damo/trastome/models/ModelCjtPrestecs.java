@@ -4,11 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
+import com.damo.trastome.dao.Prestec;
 import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.db.DBHelper;
-import com.damo.trastome.dao.Prestec;
 
 public class ModelCjtPrestecs {
     private static final String LOG_TAG = "ModelCjtPrestecs";
@@ -30,6 +29,7 @@ public class ModelCjtPrestecs {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBContracts.Prestec.ID_CONTACTE, prestec.getIdContacte());
+        values.put(DBContracts.Prestec.NOM_CONTACTE, prestec.getNomContacte());
         values.put(DBContracts.Prestec.NOM_ITEM, prestec.getNomItem());
         values.put(DBContracts.Prestec.DATA, prestec.getData());
         db.insert(DBContracts.Prestec.TABLE_NAME, null, values);

@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.damo.trastome" >
 
-    <uses-permission
-        android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.AfegirPrestecActivity"
             android:label="@string/titol_prestec" />
+        <activity
+            android:name=".activities.AfegirItemActivity"
+            android:label="@string/dialog_titol_afegir_item" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Generics -->
     <string name="app_name">TrastoMe</string>
     <string name="action_settings">Settings</string>
     <string name="acceptar">Acceptar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="no_items_toast">No hi ha cap trasto disponible.</string>
 
     <!-- Titols -->
     <string name="titol_prestec">Afegir Préstec</string>
+    <string name="dialog_titol_afegir_item">Afegir Trasto</string>
 
     <!-- Pantalla Principal Prestecs -->
     <string name="menu_afegir_prestec">Afegir Préstec</string>
-    <string name="menu_buscar_prestec">Buscar Préstec</string>
+    <string name="menu_afegir_trasto">Afegir Trasto</string>
 
     <!-- Afegir Prestecs -->
-    <string name="prestec_titol">Introdueix les següents dades per crear un Préstec</string>
-    <string name="prestec_moros">Nom del Morós</string>
+    <string name="prestec_titol">Introdueix les següents dades per crear un Préstec.</string>
+
+    <string name="prestec_moros">Nom del Morós:</string>
     <string name="prestec_item">Nom de l\'objecte deixat</string>
-    <string name="prestec_nom_item">Nom</string>
-    <string name="no_items_toast">No hi ha cap trasto disponible.</string>
+    <string name="prestec_nom_item">Nom:</string>
+
+    <!-- Afegir Item -->
+    <string name="dialog_msg_afegir_item">Introdueix les dades d\'un trasto:</string>
+    <string name="nom_trasto">Nom del trasto</string>
 
 </resources>

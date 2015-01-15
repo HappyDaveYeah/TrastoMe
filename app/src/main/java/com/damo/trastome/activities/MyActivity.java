@@ -1,17 +1,22 @@
 package com.damo.trastome.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.damo.trastome.R;
 import com.damo.trastome.adapters.AdapterCjtPrestecs;
+import com.damo.trastome.dao.Item;
 import com.damo.trastome.models.ModelCjtItems;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
@@ -61,8 +66,8 @@ public class MyActivity extends Activity {
             case R.id.nou_prestec:
                 afegirPrestec();
                 return true;
-            case R.id.buscar_prestec:
-                buscarPrestec();
+            case R.id.nou_item:
+                onClickAfegirItem();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -71,7 +76,7 @@ public class MyActivity extends Activity {
 
     private void afegirPrestec() {
         if (new ModelCjtItems(getApplicationContext()).sizeItemsSensePrestec() > 0)
-            goToAfegirActivity();
+            goToAfegirPrestecActivity();
         else
             Toast.makeText(
                     getApplicationContext(),
@@ -80,13 +85,35 @@ public class MyActivity extends Activity {
             ).show();
     }
 
-    private void goToAfegirActivity() {
-        Intent intent = new Intent(getApplicationContext(), AfegirPrestecActivity.class);
-        startActivityForResult(intent, AFEGIR_REQUEST);
+    private void onClickAfegirItem() {
+        showAlertDialog();
     }
 
-    private void buscarPrestec() {
+    private void showAlertDialog() {
+        final EditText input = new EditText(this);
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.dialog_titol_afegir_item))
+                .setMessage(getString(R.string.dialog_msg_afegir_item))
+                .setView(input)
+                .setPositiveButton(getString(R.string.acceptar), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        afegirItem(input.getText());
+                    }
+                }).setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Do nothing.
+            }
+        }).show();
+    }
 
+    private void afegirItem(Editable text) {
+        ModelCjtItems modelCjtItems = new ModelCjtItems(getApplicationContext());
+        modelCjtItems.add(new Item(text.toString()));
+    }
+
+    private void goToAfegirPrestecActivity() {
+        Intent intent = new Intent(getApplicationContext(), AfegirPrestecActivity.class);
+        startActivityForResult(intent, AFEGIR_REQUEST);
     }
 
     @Override

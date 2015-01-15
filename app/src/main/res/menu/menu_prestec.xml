@@ -2,15 +2,15 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"        xmlns:tools="http://schemas.android.com/tools"
         tools:context=".MyActivity" >
-    <item android:id="@+id/buscar_prestec"
-        android:title="@string/menu_buscar_prestec"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_search"/>
     <item android:id="@+id/nou_prestec"
         android:title="@string/menu_afegir_prestec"
         android:orderInCategory="100"
         android:showAsAction="always"
         android:icon="@android:drawable/ic_menu_add"/>
+    <item android:id="@+id/nou_item"
+        android:title="@string/menu_afegir_trasto"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        />
 
 </menu>

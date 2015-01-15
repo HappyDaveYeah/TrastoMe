@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.damo.trastome.db.DBContracts;
+import com.damo.trastome.R;
 import com.damo.trastome.dao.Prestec;
+import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
 public class AdapterCjtPrestecs extends CursorAdapter{
@@ -24,13 +25,17 @@ public class AdapterCjtPrestecs extends CursorAdapter{
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return cursorInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+        return cursorInflater.inflate(R.layout.row_prestec, parent, false);
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView text = (TextView) view.findViewById(android.R.id.text1);
-        text.setText(cursor.getString(cursor.getColumnIndex(DBContracts.Prestec.NOM_ITEM)));
+        TextView item = (TextView) view.findViewById(R.id.item_row);
+        TextView data = (TextView) view.findViewById(R.id.data_row);
+        TextView contacte = (TextView) view.findViewById(R.id.contacte_row);
+        item.setText(cursor.getString(cursor.getColumnIndex(DBContracts.Prestec.NOM_ITEM)));
+        data.setText(cursor.getString(cursor.getColumnIndex(DBContracts.Prestec.DATA)));
+        contacte.setText(cursor.getString(cursor.getColumnIndex(DBContracts.Prestec.NOM_CONTACTE)));
     }
 
     private void updateCursor() {

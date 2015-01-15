@@ -8,17 +8,14 @@ import com.damo.trastome.db.DBContracts;
 public class Prestec {
     private String nomItem;
     private long idContacte;
-    private String data;
 
-    public Prestec (String nomItem, long idContacte, String data) {
-        this.nomItem = nomItem;
-        this.idContacte = idContacte;
-        this.data = data;
-    }
+    private String nomContacte;
+    private String data;
 
     public Prestec(Cursor adaptadorItemCursor, Cursor adaptadorContactesCursor, String data) {
         this.nomItem = adaptadorItemCursor.getString(adaptadorItemCursor.getColumnIndex(DBContracts.Item.NOM));
         this.idContacte = adaptadorContactesCursor.getLong(adaptadorContactesCursor.getColumnIndex(ContactsContract.Data._ID));
+        this.nomContacte = adaptadorContactesCursor.getString(adaptadorContactesCursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
         this.data = data;
     }
 
@@ -32,5 +29,9 @@ public class Prestec {
 
     public long getIdContacte(){
         return idContacte;
+    }
+
+    public String getNomContacte() {
+        return nomContacte;
     }
 }

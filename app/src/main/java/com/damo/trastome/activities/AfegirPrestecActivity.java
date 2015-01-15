@@ -13,7 +13,7 @@ import com.damo.trastome.Utils;
 import com.damo.trastome.adapters.AdapterCjtContactes;
 import com.damo.trastome.adapters.AdapterCjtItems;
 import com.damo.trastome.dao.Prestec;
-import com.damo.trastome.models.ModelCjtContactes;
+import com.damo.trastome.models.ModelCursorCjtContactes;
 import com.damo.trastome.models.ModelCjtItems;
 import com.damo.trastome.models.ModelCjtPrestecs;
 
@@ -48,7 +48,7 @@ public class AfegirPrestecActivity extends Activity {
     }
 
     private void setAdapter() {
-        ModelCjtContactes modelCjtContactes = new ModelCjtContactes(getApplicationContext());
+        ModelCursorCjtContactes modelCjtContactes = new ModelCursorCjtContactes(getApplicationContext());
 
         adaptadorContactes =
                 new AdapterCjtContactes(this, android.R.layout.simple_spinner_item, modelCjtContactes, 0);

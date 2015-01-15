@@ -6,18 +6,17 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-import com.damo.trastome.models.ModelCjtContactes;
+import com.damo.trastome.models.ModelCursorCjtContactes;
 
 public class AdapterCjtContactes extends ResourceCursorAdapter{
     private LayoutInflater cursorInflater;
-    private ModelCjtContactes modelCjtContactes;
+    private ModelCursorCjtContactes modelCjtContactes;
     private int layoutId;
 
-    public AdapterCjtContactes(Context context, int layout, ModelCjtContactes modelCjtContactes, int flags) {
+    public AdapterCjtContactes(Context context, int layout, ModelCursorCjtContactes modelCjtContactes, int flags) {
         super(context, layout, modelCjtContactes.getDades(), flags);
         cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layoutId = layout;

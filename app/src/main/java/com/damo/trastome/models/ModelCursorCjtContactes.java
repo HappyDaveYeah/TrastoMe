@@ -4,15 +4,17 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
-public class ModelCjtContactes {
+public class ModelCursorCjtContactes extends AbsModelCursor {
     private static final String LOG_TAG = "ModelCjtContactes";
-    private Cursor dades;
+    private Context context;
 
-    public ModelCjtContactes(Context context) {
-        carregaDades(context);
+    public ModelCursorCjtContactes(Context context) {
+        this.context = context;
+        carregaDades();
     }
 
-    private void carregaDades(Context context) {
+    @Override
+    protected void carregaDades() {
         String[] projection = new String[]{
                 ContactsContract.Data._ID,
                 ContactsContract.Data.DISPLAY_NAME};
@@ -23,9 +25,5 @@ public class ModelCjtContactes {
                 null,
                 null,
                 null);
-    }
-
-    public Cursor getDades() {
-        return dades;
     }
 }
