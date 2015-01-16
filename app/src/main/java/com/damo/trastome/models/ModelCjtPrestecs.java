@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.damo.trastome.dao.Prestec;
 import com.damo.trastome.db.DBContracts;
@@ -41,6 +42,18 @@ public class ModelCjtPrestecs {
         int x = db.delete(DBContracts.Prestec.TABLE_NAME, DBContracts.Prestec._ID + "=?",
                 new String[]{ String.valueOf(id) });
         carregaDades();
+    }
+
+    public Prestec get(long id) {
+        if (dades.moveToFirst()) {
+            do {
+                if (id == dades.getLong(dades.getColumnIndex(DBContracts.Prestec._ID))) {
+                    Log.i(LOG_TAG, "Trobat");
+                    return new Prestec(dades);
+                }
+            } while (dades.moveToNext());
+        }
+        return null;
     }
 
     public int size() {

@@ -22,8 +22,10 @@
             android:name=".activities.AfegirPrestecActivity"
             android:label="@string/titol_prestec" />
         <activity
-            android:name=".activities.AfegirItemActivity"
-            android:label="@string/dialog_titol_afegir_item" >
+            android:name=".activities.EditarPrestecActivity"
+            android:label="@string/title_activity_editar_prestec"
+            android:screenOrientation="portrait"
+            >
         </activity>
     </application>
 

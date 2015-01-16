@@ -18,7 +18,6 @@
 
     <!-- Afegir Prestecs -->
     <string name="prestec_titol">Introdueix les següents dades per crear un Préstec.</string>
-
     <string name="prestec_moros">Nom del Morós:</string>
     <string name="prestec_item">Nom de l\'objecte deixat</string>
     <string name="prestec_nom_item">Nom:</string>
@@ -26,5 +25,15 @@
     <!-- Afegir Item -->
     <string name="dialog_msg_afegir_item">Introdueix les dades d\'un trasto:</string>
     <string name="nom_trasto">Nom del trasto</string>
+    <string name="edit_context_menu">Editar Prèstec</string>
+    <string name="delete_context_menu">Esborrar Prèstec</string>
+    <string name="esborrar_msg_dialog">Segur que vol esborrar el trasto?</string>
+    <string name="si">Si</string>
+    <string name="esborrar">Esborrar</string>
+    <string name="trasto_esborrat_toast">El trasto s\'ha esborrat correctament.</string>
+    <string name="title_activity_editar_prestec">EditarPrestecActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="modificar">Modificar</string>
+    <string name="edit_prestec_titol">Edita les següents dades per modificar el Préstec.</string>
 
 </resources>

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
+import com.damo.trastome.dao.Prestec;
+import com.damo.trastome.db.DBContracts;
+
 public class ModelCursorCjtContactes {
     private static final String LOG_TAG = "ModelCjtContactes";
     private Cursor dades;
@@ -27,5 +30,16 @@ public class ModelCursorCjtContactes {
 
     public Cursor getDades() {
         return dades;
+    }
+
+    public int getPosition(long id) {
+        if (dades.moveToFirst()) {
+            do {
+                if (id == dades.getLong(dades.getColumnIndex(ContactsContract.Data._ID))) {
+                    return dades.getPosition();
+                }
+            } while (dades.moveToNext());
+        }
+        return -1;
     }
 }

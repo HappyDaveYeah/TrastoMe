@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.damo.trastome.Utils;
+import com.damo.trastome.Utils.Utils;
 
 public class DBHelper extends SQLiteOpenHelper {
 

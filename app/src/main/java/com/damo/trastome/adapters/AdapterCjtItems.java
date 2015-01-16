@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.damo.trastome.db.DBContracts;
 import com.damo.trastome.models.ModelCjtItems;
+import com.damo.trastome.models.ModelCjtItemsAmbPrestec;
 
 public class AdapterCjtItems extends ResourceCursorAdapter {
     private LayoutInflater cursorInflater;
@@ -17,7 +18,7 @@ public class AdapterCjtItems extends ResourceCursorAdapter {
     private int layoutId;
 
     public AdapterCjtItems(Context context, int layout, ModelCjtItems modelCjtItems, int flags) {
-        super(context, layout, modelCjtItems.getItemsSensePrestec(), flags);
+        super(context, layout, modelCjtItems.getDades(), flags);
         cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layoutId = layout;
         this.modelCjtItems = modelCjtItems;
@@ -50,5 +51,9 @@ public class AdapterCjtItems extends ResourceCursorAdapter {
         else {
             return 0;
         }
+    }
+
+    public int getPosition(String nomItem) {
+        return modelCjtItems.getPosition(nomItem);
     }
 }

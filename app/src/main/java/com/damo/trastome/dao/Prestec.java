@@ -19,6 +19,13 @@ public class Prestec {
         this.data = data;
     }
 
+    public Prestec(Cursor c) {
+        this.nomItem = c.getString(c.getColumnIndex(DBContracts.Prestec.NOM_ITEM));
+        this.idContacte = c.getLong(c.getColumnIndex(DBContracts.Prestec.ID_CONTACTE));
+        this.nomContacte = c.getString(c.getColumnIndex(DBContracts.Prestec.NOM_CONTACTE));
+        this.data = c.getString(c.getColumnIndex(DBContracts.Prestec.DATA));
+    }
+
     public String getData(){
         return data;
     }

@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
@@ -34,4 +35,9 @@ public class AdapterCjtContactes extends ResourceCursorAdapter{
         TextView text = (TextView) view;
         text.setText(cursor.getString(cursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME)));
     }
+
+    public int getPosition(long id) {
+        return modelCjtContactes.getPosition(id);
+    }
+
 }
